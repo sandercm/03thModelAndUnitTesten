@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Banking.Models.Domain {
-    class BankAccount {
+    public class BankAccount {
         #region Properties & Fields
         private ICollection<Transaction> _transactions;
         public decimal Balance { get; private set; }
@@ -19,7 +19,7 @@ namespace Banking.Models.Domain {
         #endregion
 
         #region Methods
-        public void Withdraw(decimal amount) {
+        public virtual void Withdraw(decimal amount) {
             _transactions.Add(new Transaction(amount, TransactionType.Withdraw));
             Balance -= amount;
         }
